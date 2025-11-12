@@ -8,7 +8,7 @@
 **前提**: Step2で選択した最有望案が記載されている `ideation/step2_ideas.md` を参照してください。
 
 ```
-@ideation/step2_ideas.md を参照してください。
+ideation/step2_ideas.md を参照してください。
 
 選択したアイディアをビジネスとして成立させるための分析を行います。
 

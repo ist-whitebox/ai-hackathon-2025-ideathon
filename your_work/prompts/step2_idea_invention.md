@@ -8,7 +8,7 @@
 **前提**: Step1で作成した `ideation/step1_persona.md` を参照してください。
 
 ```
-@ideation/step1_persona.md を参照してください。
+ideation/step1_persona.md を参照してください。
 
 先ほど特定した課題を解決するアイディアを発明します。
 
