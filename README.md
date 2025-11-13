@@ -27,7 +27,7 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 - 合計20人（オンライン10人 + オフライン10人）
 - ほぼエンジニア、一部ビジネス職
 - Amazon Q Developer初心者
-- 前イベントでPython 3.11 + Strands Agent体験済み
+- 前イベントでPython 3.11 + Strands Agents体験済み
 
 ## ⏱️ タイムテーブル（90分）
 

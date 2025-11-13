@@ -165,7 +165,7 @@ q chat
 
 ### モック作成（25分）🤖
 
-**目的**: PR/FAQからStrands Agentを活用した動くモックを作成する
+**目的**: PR/FAQからStrands Agentsを活用した動くモックを作成する
 
 1. `your_work` ディレクトリにいることを確認
 ```bash
@@ -185,7 +185,7 @@ q chat --agent mock-builder
 
 4. 「モックを作成したい」と入力
 
-5. 技術スタックを選択（Streamlit+Strands Agent または FastAPI+HTML+Strands Agent）
+5. 技術スタックを選択（Streamlit+Strands Agents または FastAPI+HTML+Strands Agents）
 
 6. 自動的に `mock/` ディレクトリにアプリが生成されます
 
@@ -214,7 +214,7 @@ python app.py
 
 **期待されるアウトプット:**
 - ランディングページ
-- Strands Agentを活用した生成AI処理
+- Strands Agentsを活用した生成AI処理
 - 動作するアプリケーション（モックレベル）
 - ローカルURL
 
