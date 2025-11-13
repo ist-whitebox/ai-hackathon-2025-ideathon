@@ -171,7 +171,7 @@ section {
 ### 1. 仮想環境の作成
 
 ```bash
-uv venv
+uv venv --python 3.11
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 ```
 

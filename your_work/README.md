@@ -197,7 +197,7 @@ cp .env mock/.env
 8. 仮想環境を作成して起動
 ```bash
 cd mock/
-uv venv
+uv venv --python 3.11
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 uv pip install -r requirements.txt
 

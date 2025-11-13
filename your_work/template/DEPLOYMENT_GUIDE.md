@@ -30,7 +30,7 @@
 ### 1. 仮想環境の作成
 
 ```bash
-uv venv
+uv venv --python 3.11
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 ```
 
@@ -86,7 +86,7 @@ uvicorn.run(app, host="0.0.0.0", port=8001)
 ```bash
 # 仮想環境を再作成
 rm -rf .venv
-uv venv
+uv venv --python 3.11
 source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
