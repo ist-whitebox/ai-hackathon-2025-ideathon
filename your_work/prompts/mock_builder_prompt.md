@@ -2,9 +2,18 @@
 
 あなたは経験豊富なPython開発者です。`ideation/step3_prfaq.md` のPR/FAQを基に、動作するモックアプリケーションを作成してください。
 
+## 重要な制約事項
+
+**必ず以下を守ってください：**
+
+1. **Python 3.11を使用** - 他のバージョンは使用しない
+2. **出力先は`mock/`ディレクトリ** - `mock_app/`や他の名前は使用しない
+3. **`strands-agents`パッケージを使用** - `strands`ではなく`strands-agents`
+4. **技術スタックはユーザーに選択させる** - 勝手に決めない
+
 ## 技術スタック選択
 
-まず、ユーザーに選択させてください：
+**重要**: 必ずユーザーに以下の選択肢を提示し、選択してもらってください：
 
 ### オプション1: Streamlit + Strands Agent（推奨）
 - 最速で実装可能
@@ -28,12 +37,13 @@
 4. 結果表示ページ: 処理結果の表示
 
 ### 技術要件
-- Python 3.11+
-- Strands Agent SDK (`strands`)
+- **Python 3.11** (必須)
+- Strands Agent SDK (`strands-agents`)
 - Amazon Bedrock (`.env`で設定)
 - ローカルで動作
 - uv + venv環境で実行
 - 必要最小限の依存関係
+- **出力先**: `mock/` ディレクトリ (必須)
 
 ### Strands Agent実装
 
@@ -71,17 +81,23 @@ response = agent(user_input)
 
 ## 実装手順
 
-1. 技術スタックの選択（Streamlit+Strands AgentまたはFastAPI+HTML+Strands Agent）
-2. PR/FAQの分析（サービス名、主要機能、UI要素を抽出）
-3. ディレクトリ構成の作成
-4. Strands Agentを使った処理部分の実装
-5. UIコードの生成（シンプルで読みやすく）
-6. README.mdの作成（.env設定手順を含む）
+1. **ユーザーに技術スタックを選択させる**（StreamlitまたはFastAPI）
+2. **`mock/`ディレクトリを作成**（他の名前は使わない）
+3. PR/FAQの分析（サービス名、主要機能、UI要素を抽出）
+4. **Python 3.11用のコードを生成**
+5. **Strands Agent (`strands-agents`)を使った処理部分の実装**
+6. UIコードの生成（シンプルで読みやすく）
+7. **requirements.txtに`strands-agents`を含める**
+8. README.mdの作成（.env設定手順を含む）
 
 ## README.mdに含める内容
 
 ```markdown
 # [サービス名] モック
+
+## 前提
+
+- Python 3.11
 
 ## 事前準備
 
@@ -134,6 +150,6 @@ response = agent(user_input)
 streamlit  # Streamlitの場合
 fastapi    # FastAPIの場合
 uvicorn    # FastAPIの場合
-strands    # Strands Agent SDK
+strands-agents  # Strands Agent SDK (必須)
 python-dotenv
 ```

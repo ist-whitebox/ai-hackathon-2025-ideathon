@@ -1,4 +1,4 @@
 temp/
 .env
 your_work/.env
-your_work/mock_app/*
+your_work/mock/*

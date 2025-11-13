@@ -41,18 +41,24 @@ your_work/
 
 ### 事前準備
 
-1. リポジトリをクローン
+1. Python 3.11の確認
+```bash
+python --version
+# Python 3.11.x を期待
+```
+
+2. リポジトリをクローン
 ```bash
 git clone <repository-url>
 cd ai-hackathon-2025-ideathon/your_work
 ```
 
-2. `.env`ファイルの作成
+3. `.env`ファイルの作成
 ```bash
 cp .env.sample .env
 ```
 
-3. `.env`ファイルを編集し、Bedrock APIキーを設定
+4. `.env`ファイルを編集し、Bedrock APIキーを設定
 ```bash
 # .envファイルを開いて編集
 AWS_BEARER_TOKEN_BEDROCK=your-api-key-here  # 運営から配布されたAPIキーを設定
@@ -60,13 +66,13 @@ AWS_REGION=ap-northeast-1
 AWS_BEDROCK_MODEL_ID=global.anthropic.claude-haiku-4-5-20251001-v1:0
 ```
 
-4. 現在のディレクトリを確認
+5. 現在のディレクトリを確認
 ```bash
 pwd
 # /path/to/ai-hackathon-2025-ideathon/your_work を期待
 ```
 
-5. Amazon Q Developer CLIを起動
+6. Amazon Q Developer CLIを起動
 ```bash
 q chat
 # または q
@@ -181,16 +187,16 @@ q chat --agent mock-builder
 
 5. 技術スタックを選択（Streamlit+Strands Agent または FastAPI+HTML+Strands Agent）
 
-6. 自動的に `mock_app/` ディレクトリにアプリが生成されます
+6. 自動的に `mock/` ディレクトリにアプリが生成されます
 
 7. `.env`ファイルをコピー
 ```bash
-cp .env mock_app/.env
+cp .env mock/.env
 ```
 
 8. 仮想環境を作成して起動
 ```bash
-cd mock_app/
+cd mock/
 uv venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 uv pip install -r requirements.txt
