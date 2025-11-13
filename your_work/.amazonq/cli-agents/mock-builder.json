@@ -1,0 +1,91 @@
+{
+  "name": "mock-builder",
+  "description": "Build the mock from PR/FAQ",
+  "mcpServers": {
+    "AWS Core MCP Server": {
+      "command": "uvx",
+      "timeout": 60000,
+      "args": [
+        "awslabs.core-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "AWS Documentation MCP Server": {
+      "command": "uvx",
+      "timeout": 60000,
+      "args": [
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws"
+      }
+    },
+    "aws-knowledge-mcp-server": {
+      "command": "npx",
+      "args": [
+          "mcp-remote",
+          "https://knowledge-mcp.global.api.aws"
+      ]
+    },
+    "awslabs.nova-canvas-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.nova-canvas-mcp-server@latest"],
+      "env": {
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  },
+  "tools": [
+	"*"
+  ],
+"allowedTools": [
+    "fs_read",
+    "fs_write", 
+    "execute_bash",
+    "use_aws",
+    "report_issue",
+    "@AWS Core MCP Server/prompt_understanding",
+    "@awslabs.nova-canvas-mcp-server/generate_image",
+    "@awslabs.nova-canvas-mcp-server/generate_image_with_colors",
+    "@AWS Documentation MCP Server/read_documentation",
+    "@AWS Documentation MCP Server/recommend", 
+    "@AWS Documentation MCP Server/search_documentation",
+    "@aws-knowledge-mcp-server/aws___read_documentation",
+    "@aws-knowledge-mcp-server/aws___recommend",
+    "@aws-knowledge-mcp-server/aws___search_documentation"
+],
+  "toolsSettings": {
+    "execute_bash": {
+      "alwaysAllow": [
+        {
+          "preset": "readOnly"
+        }
+      ]
+    },
+    "use_aws": {
+      "alwaysAllow": [
+        {
+          "preset": "readOnly"
+        }
+      ]
+    }
+  },
+  "resources": [
+    "file://your_work/README.md",
+    "file://your_work/ideation/step3_prfaq.md",
+    "file://your_work/prompts/mock_builder_prompt.md",
+    "file://your_work/template/DEPLOYMENT_GUIDE.md",
+    "file://your_work/template/STREAMLIT_GUIDE.md",
+    "file://your_work/template/FASTAPI_GUIDE.md",
+    "file://your_work/template/streamlit_example/",
+    "file://your_work/template/fastapi_example/"
+  ],
+  "prompt":"あなたは経験豊富なPython開発者です。file://your_work/prompts/mock_builder_prompt.md の指示に従って、file://your_work/ideation/step3_prfaq.md のPR/FAQを基にモックアプリケーションを作成してください。テンプレートを参考にしてください。"
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>メイン機能</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header><h1>メイン機能</h1><a href="/">← トップに戻る</a></header>
+    <main>
+        <section><h2>入力</h2>
+            <form id="mainForm">
+                <input type="text" id="userInput" placeholder="入力してください" required>
+                <button type="submit">実行</button>
+            </form>
+        </section>
+        <section id="result" style="display: none;"><h2>結果</h2><div id="resultContent"></div></section>
+    </main>
+    <script>
+        document.getElementById('mainForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const input = document.getElementById('userInput').value;
+            const response = await fetch('/api/process', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({input: input})
+            });
+            const data = await response.json();
+            document.getElementById('resultContent').textContent = data.result;
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
