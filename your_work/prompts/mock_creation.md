@@ -1,11 +1,11 @@
 # モック作成（25分）
 
 ## 目的
-Strands Agentを活用してポン出しモックを作成する
+Strands Agentsを活用してポン出しモックを作成する
 
 ## モックの優先順位
 
-1. 🥇 **Python + Flask/FastAPI + 画面 + Strands Agent処理**（推奨）
+1. 🥇 **Python + Flask/FastAPI + 画面 + Strands Agents処理**（推奨）
 2. 🥈 **Node.js/Next.js + 画面 + 処理**
 3. 🥉 **HTML + JavaScript + Python**
 4. 🏅 **HTML + JavaScript（入力→出力）**
@@ -18,13 +18,13 @@ PR/FAQの内容を基に、以下の構成でモックを作成してくださ�
 技術スタック：
 - Python（Flask または FastAPI）
 - 簡単なHTML画面
-- 処理部分はStrands Agentを活用
+- 処理部分はStrands Agentsを活用
 - ローカルで動作確認できること
 
 要件：
 1. ランディングページ（サービス説明）
 2. 主要機能の体験UI（入力フォーム）
-3. Strands Agentによる処理実行
+3. Strands Agentsによる処理実行
 4. 結果表示画面
 
 実装手順も含めて教えてください。
@@ -57,7 +57,7 @@ PR/FAQの内容を基に、以下の構成でモックを作成してくださ�
 
 ## 前回ハンズオンの参考
 
-前回のハンズオンで作成したStrands Agentのコードを参考にできます：
+前回のハンズオンで作成したStrands Agentsのコードを参考にできます：
 - [ai-hackathon-2025-hands-on](https://github.com/ist-whitebox/ai-hackathon-2025-hands-on)
 - `workshop/examples/` にサンプルコードあり
 
@@ -70,7 +70,7 @@ PR/FAQの内容を基に、以下の構成でモックを作成してくださ�
 
 ## トラブルシューティング
 
-### Strands Agentでエラーが出る
+### Strands Agentsでエラーが出る
 - 前回のサンプルコードを参考に
 - 簡易版（HTML+JS）に切り替え
 

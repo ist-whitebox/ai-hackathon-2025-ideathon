@@ -15,13 +15,13 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 - **合計20人**（オンライン10人 + オフライン10人）
 - ほぼエンジニア、一部ビジネス職
 - Amazon Q Developer初心者
-- **前イベントでPython 3.11 + Strands Agent体験済み**
+- **前イベントでPython 3.11 + Strands Agents体験済み**
 
 ### 前提環境
 - Python 3.11 + uv
 - Amazon Q Developer
 - VS Code
-- Strands Agent実装経験あり
+- Strands Agents実装経験あり
 - 前イベントのリポジトリ: https://github.com/ist-whitebox/ai-hackathon-2025-hands-on
 
 ### 本イベントのリポジトリ
@@ -33,9 +33,9 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 | 時間 | セクション | 内容 | 形式 | 詳細 |
 |------|-----------|------|------|------|
 | 0-5分 | イントロ | 目的説明・ゴール共有 | 全体 | アイディアソンの流れ |
-| 5-10分 | 環境確認 | Q Developer + Strands Agent確認 | 個人 | 前回環境の動作確認 |
+| 5-10分 | 環境確認 | Q Developer + Strands Agents確認 | 個人 | 前回環境の動作確認 |
 | 10-40分 | アイディア膨らまし | Step1→Step2→Step3 | 個人🤖 | 3ステップで完結 |
-| 40-65分 | モック作成 | Strands Agent活用 | 個人🤖 | Python+画面+処理 |
+| 40-65分 | モック作成 | Strands Agents活用 | 個人🤖 | Python+画面+処理 |
 | 60-65分 | 提出 | フォーム記入 | 個人 | 仕様書・モック・想い |
 | 65-70分 | 準備 | 一覧作成・発表者選定 | 運営 | 3-5個選定 |
 | 70-85分 | 共有 | 発表+チームビルディング | 全体 | 画面共有でデモ |
@@ -50,13 +50,13 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 **内容:**
 - 今日のゴール
   1. AIとのアイディア膨らませ方を体験
-  2. モックを作る（Strands Agent活用）
+  2. モックを作る（Strands Agents活用）
   3. チームを作る（マッチング）
 - 3ステップの説明
   - Step1: 顧客理解
   - Step2: アイディア発明
   - Step3: ビジネス化
-- 前回のStrands Agent環境を使うことを確認
+- 前回のStrands Agents環境を使うことを確認
 - このリポジトリをcloneしてもらう
 
 ### 5-10分: 環境確認
@@ -123,11 +123,11 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 
 ### 40-65分: モック作成（25分）
 
-**目的:** Strands Agentを活用してポン出しモックを作成
+**目的:** Strands Agentsを活用してポン出しモックを作成
 
 #### モックの優先順位
 
-1. 🥇 **Python + Flask/FastAPI + 画面 + Strands Agent処理**（推奨）
+1. 🥇 **Python + Flask/FastAPI + 画面 + Strands Agents処理**（推奨）
 2. 🥈 **Node.js/Next.js + 画面 + 処理**
 3. 🥉 **HTML + JavaScript + Python**
 4. 🏅 **HTML + JavaScript（入力→出力）**
@@ -255,7 +255,7 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 ### ゴール設定
 - **最低限のゴール:** PR/FAQ作成まで
 - **理想のゴール:** モック構築まで
-- **ボーナス:** ビジネスモデルキャンバス + Strands Agent活用
+- **ボーナス:** ビジネスモデルキャンバス + Strands Agents活用
 
 ### 雰囲気作り
 - 「ポン出しでOK」を強調
@@ -271,7 +271,7 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 | Q Developerが動かない | 前回環境を使う、チューターサポート |
 | プロンプトがうまくいかない | テンプレートを提供、代替案を用意 |
 | モック構築が間に合わない | PR/FAQ作成までで区切る、簡易版に切り替え |
-| Strands Agentでエラー | 前回のサンプルコードを参考に |
+| Strands Agentsでエラー | 前回のサンプルコードを参考に |
 | 時間オーバー | 各ステップ2分前にアラート、次に進む |
 | ビジネスモデルキャンバスが難しい | オプションなのでスキップしてOK |
 
@@ -300,7 +300,7 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 
 ### 前回ハンズオン
 - [ai-hackathon-2025-hands-on](https://github.com/ist-whitebox/ai-hackathon-2025-hands-on)
-- Strands Agent実装例
+- Strands Agents実装例
 
 ### AWS生成AI事例
 - [AWS生成AI事例集](https://aws.amazon.com/jp/local/genai-4-jp/)
@@ -331,7 +331,7 @@ ai-hackathon-2025-ideathon/
 **体験できること:**
 - AIとのアイディア膨らませ方の体験
 - Amazon Q Developerとの効果的な壁打ち
-- Strands Agentを活用したモック作成
+- Strands Agentsを活用したモック作成
 - チームビルディング・マッチング
 
 **持ち帰れるもの:**

@@ -15,17 +15,17 @@
 
 **重要**: 必ずユーザーに以下の選択肢を提示し、選択してもらってください：
 
-### オプション1: Streamlit + Strands Agent（推奨）
+### オプション1: Streamlit + Strands Agents（推奨）
 - 最速で実装可能
 - インタラクティブなUIが簡単
 - 複数ページの構成が容易
-- Strands Agentで生成AI処理を実装
+- Strands Agentsで生成AI処理を実装
 - 90分のアイディアソンに最適
 
-### オプション2: FastAPI + HTML + Strands Agent
+### オプション2: FastAPI + HTML + Strands Agents
 - デザインの自由度が高い
 - 柔軟なUI設計が可能
-- Strands Agentで生成AI処理を実装
+- Strands Agentsで生成AI処理を実装
 - コード量が多い
 
 ## 要件
@@ -33,7 +33,7 @@
 ### 必須機能
 1. ランディングページ: サービス概要、主要機能の説明
 2. メイン機能ページ: PR/FAQで説明した主要機能の体験UI
-3. Strands Agent処理: 生成AIを活用した処理（前回ハンズオンの知識を活用）
+3. Strands Agents処理: 生成AIを活用した処理（前回ハンズオンの知識を活用）
 4. 結果表示ページ: 処理結果の表示
 
 ### 技術要件
@@ -45,9 +45,9 @@
 - 必要最小限の依存関係
 - **出力先**: `mock/` ディレクトリ (必須)
 
-### Strands Agent実装
+### Strands Agents実装
 
-前回ハンズオンで学んだStrands Agentを活用してください：
+前回ハンズオンで学んだStrands Agentsを活用してください：
 
 ```python
 from strands import Agent, tool
@@ -77,7 +77,7 @@ response = agent(user_input)
 - npm不要
 - ローカルで完結
 - ポン出しレベルでOK
-- Strands Agentの処理は簡易的でOK（複雑なツールは不要）
+- Strands Agentsの処理は簡易的でOK（複雑なツールは不要）
 
 ## 実装手順
 
@@ -85,7 +85,7 @@ response = agent(user_input)
 2. **`mock/`ディレクトリを作成**（他の名前は使わない）
 3. PR/FAQの分析（サービス名、主要機能、UI要素を抽出）
 4. **Python 3.11用のコードを生成**
-5. **Strands Agent (`strands-agents`)を使った処理部分の実装**
+5. **Strands Agents (`strands-agents`)を使った処理部分の実装**
 6. UIコードの生成（シンプルで読みやすく）
 7. **requirements.txtに`strands-agents`を含める**
 8. README.mdの作成（.env設定手順を含む）
@@ -141,7 +141,7 @@ response = agent(user_input)
 - 完璧を求めない
 - デザインは最小限
 - エラーハンドリングは簡易的
-- Strands Agentの処理は簡易的でOK
+- Strands Agentsの処理は簡易的でOK
 - 前回ハンズオンのサンプルコードを参考にする
 
 ## requirements.txtに含めるべきパッケージ
