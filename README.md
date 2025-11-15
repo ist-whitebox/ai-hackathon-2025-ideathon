@@ -64,21 +64,24 @@ ai-hackathon-2025-ideathon/
 ├── README.md                              # このファイル
 ├── ideathon_v3_final.md                  # 最終設計書
 ├── LICENSE                               # MIT-0ライセンス
+├── .amazonq/
+│   └── default.json                      # アイディア膨らまし用（Step1-3）
 ├── your_work/                            # 参加者用ワークスペース
 │   ├── README.md                         # ワークガイド
-│   ├── .amazonq/cli-agents/              # Agent設定
-│   │   ├── default-agent.json            # 壁打ち相手用
-│   │   └── mock-builder.json             # モック作成用
+│   ├── .amazonq/
+│   │   ├── default.json                  # モック作成用（Step4）
+│   │   └── mock-builder/                 # エージェント専用リソース
+│   │       ├── IMPROVEMENT_GUIDE.md
+│   │       └── mock_builder_prompt.md
 │   ├── prompts/                          # プロンプト集
 │   │   ├── step1_customer_understanding.md
 │   │   ├── step2_idea_invention.md
-│   │   ├── step3_business_model.md
-│   │   └── mock_creation.md
+│   │   └── step3_business_model.md
 │   ├── ideation/                         # 成果物保存先
 │   │   ├── step1_persona.md
 │   │   ├── step2_ideas.md
 │   │   └── step3_prfaq.md                # モック作成時に参照
-│   └── template/                         # Reactテンプレート
+│   └── template/                         # テンプレート
 └── temp/                                 # 参考資料（.gitignore）
 ```
 

@@ -2,6 +2,53 @@
 
 あなたは経験豊富なPython開発者です。`ideation/step3_prfaq.md` のPR/FAQを基に、動作するモックアプリケーションを作成してください。
 
+## 🚨 実装前の必須確認事項（Phase 0）
+
+**重要**: コードを書く前に、必ず以下を実行してください：
+
+### ステップ1: ライブラリAPI調査
+
+```bash
+# 1. インポート可能なモジュール/クラスの確認
+python -c "import strands; print(dir(strands))"
+
+# 2. Agentクラスの初期化パラメータの確認
+python -c "from strands import Agent; help(Agent.__init__)"
+
+# 3. 利用可能なメソッドの確認
+python -c "from strands import Agent; a = Agent(); print([m for m in dir(a) if not m.startswith('_')])"
+
+# 4. 戻り値の構造確認（実際に実行）
+python -c "
+from strands import Agent
+import asyncio
+a = Agent()
+result = asyncio.run(a.invoke_async('test'))
+print('Result type:', type(result))
+print('Message type:', type(result.message))
+print('Message structure:', result.message)
+"
+```
+
+### ステップ2: 小さなテストコードで検証
+
+```python
+# test_strands.py
+from strands import Agent
+import asyncio
+
+async def test():
+    agent = Agent(system_prompt="You are a helpful assistant.")
+    result = await agent.invoke_async("Hello")
+    print(result.message['content'][0]['text'])
+
+asyncio.run(test())
+```
+
+### ステップ3: 確認した仕様に基づいて実装
+
+**推測で実装しない。確認した仕様のみを使用する。**
+
 ## 重要な制約事項
 
 **必ず以下を守ってください：**

@@ -25,16 +25,18 @@
 ```
 your_work/
 ├── README.md              # このファイル
+├── .amazonq/
+│   ├── default.json       # モック作成用エージェント設定
+│   └── mock-builder/      # エージェント専用リソース
 ├── prompts/               # プロンプト集
 │   ├── step1_customer_understanding.md
 │   ├── step2_idea_invention.md
-│   ├── step3_business_model.md
-│   └── mock_creation.md
+│   └── step3_business_model.md
 ├── ideation/              # 成果物保存先
 │   ├── step1_persona.md
 │   ├── step2_ideas.md
 │   └── step3_prfaq.md    # モック作成時に参照
-└── template/              # Reactテンプレート（mock-builderが使用）
+└── template/              # テンプレート
 ```
 
 ## 🚀 作業の流れ
@@ -163,38 +165,100 @@ q chat
 - ビジネスモデルキャンバスはオプション（時間がない場合はスキップ）
 - **PR/FAQは必須**（モック作成の元になります）
 
+## ⚠️ 重要: 作業ディレクトリの確認
+
+Amazon Q Developer は**作業ディレクトリ**を基準に動作します。
+必ず作業前に現在のディレクトリを確認してください。
+
+### 作業ディレクトリの確認方法
+
+**CLI:**
+```bash
+pwd  # 現在のディレクトリを表示
+```
+
+**VSCode:**
+- ウィンドウのタイトルバーでフォルダ名を確認
+- 左下のステータスバーでフォルダ名を確認
+
+### Step1-3（アイディア膨らまし）
+
+**CLI:**
+```bash
+cd ai-hackathon-2025-ideathon/
+pwd  # 確認: .../ai-hackathon-2025-ideathon
+q chat
+```
+
+**VSCode:**
+- File > Open Folder → `ai-hackathon-2025-ideathon/` を選択
+- Amazon Q チャットを起動
+
+### Step4（モック作成）
+
+**CLI:**
+```bash
+cd your_work/
+pwd  # 確認: .../ai-hackathon-2025-ideathon/your_work
+q chat
+```
+
+**VSCode:**
+- File > Open Folder → `your_work/` を選択
+- Amazon Q チャットを起動
+
+### フェーズ間の移動
+
+**モック作成後にアイディアを再膨らませたい場合:**
+
+**CLI:**
+```bash
+# モック作成中
+cd your_work/
+q chat
+# Ctrl+D で終了
+
+# アイディア膨らましに戻る
+cd ..
+pwd  # 確認: .../ai-hackathon-2025-ideathon
+q chat
+```
+
+**VSCode:**
+- 2つのVSCodeウィンドウを開いておく（推奨）
+  - ウィンドウ1: `ai-hackathon-2025-ideathon/`
+  - ウィンドウ2: `your_work/`
+- Alt+Tab（Windows/Linux）または Cmd+Tab（Mac）でウィンドウ切り替え
+
+**⚠️ 間違ったディレクトリで起動すると、意図しないエージェントが起動します！**
+
 ### モック作成（25分）🤖
 
 **目的**: PR/FAQからStrands Agentsを活用した動くモックを作成する
 
 1. `your_work` ディレクトリにいることを確認
 ```bash
-pwd
-# /path/to/ai-hackathon-2025-ideathon/your_work を期待
+cd your_work/
+pwd  # 確認: .../ai-hackathon-2025-ideathon/your_work
 ```
 
-2. **現在のQ chatを終了**
+2. Amazon Q Developerを起動
 ```bash
-/quit
+q chat
 ```
 
-3. mock-builderエージェントを起動
-```bash
-q chat --agent mock-builder
-```
+3. 「モックを作成したい」と入力
 
-4. 「モックを作成したい」と入力
+4. 技術スタックを選択（Streamlit+Strands Agents または FastAPI+HTML+Strands Agents）
 
-5. 技術スタックを選択（Streamlit+Strands Agents または FastAPI+HTML+Strands Agents）
+5. 自動的に `mock/` ディレクトリにアプリが生成されます
 
-6. 自動的に `mock/` ディレクトリにアプリが生成されます
-
-7. `.env`ファイルをコピー
+6. `.env`ファイルをコピー
 ```bash
 cp .env mock/.env
 ```
 
-8. 仮想環境を作成して起動
+7. 仮想環境を作成して起動
 ```bash
 cd mock/
 uv venv --python 3.11
@@ -208,7 +272,7 @@ streamlit run app.py
 python app.py
 ```
 
-9. ブラウザで開く
+8. ブラウザで開く
 - Streamlit: http://localhost:8501
 - FastAPI: http://localhost:8000
 
