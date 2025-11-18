@@ -5,10 +5,10 @@
 
 ## プロンプト
 
-**前提**: Step2で選択した最有望案が記載されている `ideation/step2_ideas.md` を参照してください。
+**前提**: Step2で選択した最有望案が記載されている `your_work/ideation/step2_ideas.md` を参照してください。
 
 ```
-ideation/step2_ideas.md を参照してください。
+your_work/ideation/step2_ideas.md を参照してください。
 
 選択したアイディアをビジネスとして成立させるための分析を行います。
 
@@ -48,7 +48,7 @@ ideation/step2_ideas.md を参照してください。
 
 Markdown形式でまとめてください。
 
-**重要**: 結果を `ideation/step3_prfaq.md` に保存してください。このファイルはモック作成時に参照されます。
+**重要**: 結果を `your_work/ideation/step3_prfaq.md` に保存してください。このファイルはモック作成時に参照されます。
 ```
 
 ## レビュー・修正フェーズ
@@ -61,7 +61,7 @@ Markdown形式でまとめてください。
 - [ ] FAQの回答は納得感があるか？
 - [ ] 独自の強みは明確か？競合と差別化できているか？
 
-**必要に応じて `ideation/step3_prfaq.md` を直接編集してください。**
+**必要に応じて `your_work/ideation/step3_prfaq.md` を直接編集してください。**
 
 このPR/FAQがモック作成のベースになるので、特に重要です。
 
