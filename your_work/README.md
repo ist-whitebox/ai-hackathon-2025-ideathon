@@ -1,6 +1,10 @@
-# 90分アイディアソン ワークガイド
+# 参加者用ワークスペース
 
-このガイドでは、Amazon Q Developerとの壁打ちで90分でアイディアを膨らませ、モックを作成するまでの流れを説明します。
+## 🚀 クイックスタート
+
+**👉 [WORKSHOP.md](./WORKSHOP.md) を開いて手順に従ってください**
+
+このワークスペースには、90分アイディアソンに必要なすべてのリソースが含まれています。
 
 ## 🎯 ゴール
 
@@ -9,22 +13,13 @@
 - 動くモック（ポン出しレベル）を作成する
 - チームビルディングのきっかけを作る
 
-## ⏱️ タイムテーブル
-
-| 時間 | 内容 |
-|------|------|
-| 0-5分 | イントロ・環境確認 |
-| 5-35分 | アイディア膨らまし（Step1→2→3） |
-| 35-60分 | モック作成 |
-| 60-65分 | 提出 |
-| 65-85分 | 共有・チームビルディング |
-| 85-90分 | Next Step |
-
-## 📂 ディレクトリ構成
+## 📂 ファイル構成
 
 ```
 your_work/
-├── README.md              # このファイル
+├── README.md              # このファイル（簡易ガイド）
+├── WORKSHOP.md            # 📖 詳細手順書（メインガイド）
+
 ├── .amazonq/
 │   ├── default.json       # モック作成用エージェント設定
 │   └── mock-builder/      # エージェント専用リソース
@@ -36,311 +31,87 @@ your_work/
 │   ├── step1_persona.md
 │   ├── step2_ideas.md
 │   └── step3_prfaq.md    # モック作成時に参照
-└── template/              # テンプレート
+├── presentation/          # プレゼン資料生成
+│   ├── generate.py        # プレゼン自動生成スクリプト
+│   ├── README.md          # 使い方ガイド
+│   └── index.html         # 生成されたプレゼン（実行後）
+└── template/              # テンプレート・サンプルコード
 ```
 
-## 🚀 作業の流れ
-
-### 事前準備
+## 📋 主要ドキュメント
 
-1. Python 3.11の確認
-```bash
-python --version
-# Python 3.11.x を期待
-```
-
-2. リポジトリをクローン
-```bash
-git clone <repository-url>
-cd ai-hackathon-2025-ideathon/your_work
-```
-
-3. `.env`ファイルの作成
-```bash
-cp .env.sample .env
-```
-
-4. `.env`ファイルを編集し、Bedrock APIキーを設定
-```bash
-# .envファイルを開いて編集
-AWS_BEARER_TOKEN_BEDROCK=your-api-key-here  # 運営から配布されたAPIキーを設定
-AWS_REGION=ap-northeast-1
-AWS_BEDROCK_MODEL_ID=global.anthropic.claude-haiku-4-5-20251001-v1:0
-```
+- **[WORKSHOP.md](./WORKSHOP.md)** - 詳細手順書（ステップバイステップガイド）
+- **`prompts/`** - 各ステップのプロンプトテンプレート
+- **`template/`** - Streamlit/FastAPIのサンプルコード
 
-5. 現在のディレクトリを確認
-```bash
-pwd
-# /path/to/ai-hackathon-2025-ideathon/your_work を期待
-```
+## ⏱️ タイムテーブル
 
-6. Amazon Q Developer CLIを起動
-```bash
-q chat
-# または q
-```
+詳細なタイムテーブルは **[WORKSHOP.md](./WORKSHOP.md)** を参照してください。
 
-### Step1: 顧客理解（10分）🤖
+## 🔧 事前準備
 
-**目的**: 身近な課題から顧客像を作り、行動を分析し、改善すべき課題を特定する
+開始前に以下を確認してください：
 
-#### 生成フェーズ（7分）
+- [ ] Python 3.11がインストールされている
+- [ ] Amazon Q Developer CLIが動作する
+- [ ] リポジトリをクローンした
+- [ ] `.env`ファイルを設定した（APIキー）
+- [ ] 身近な課題を1つ考えた
 
-1. `prompts/step1_customer_understanding.md` を開く
-2. プロンプトをコピーし、`[ここに自分の課題を記入]` を置き換え
-3. Amazon Q Developer (`q chat`) に貼り付け
-4. 出力結果を確認し、必要に応じて追加質問
-5. **結果を `ideation/step1_persona.md` に保存**
+詳細は **[WORKSHOP.md](./WORKSHOP.md)** の「事前準備」セクションを参照してください。
 
-#### レビューフェーズ（3分）
-
-6. `ideation/step1_persona.md` を開いて内容を確認
-7. 以下を自分で考えて修正：
-   - ペルソナは自分が想定する顧客像と合っているか？
-   - 行動分析は現実的か？抜けている行動はないか？
-   - 課題Top3は本当に重要か？
-8. 必要に応じてファイルを直接編集
-
-**期待されるアウトプット:**
-- ペルソナ（顧客像）
-- 行動の時系列マップ
-- 改善すべき課題Top3
-
-### Step2: アイディア発明（10分）🤖
+## 🎯 ワークショップの流れ
 
-**目的**: 参考事例を収集し、組み合わせて新しい解決策を発明する
+詳細な手順は **[WORKSHOP.md](./WORKSHOP.md)** を参照してください。
 
-#### 生成フェーズ（7分）
+### Step 1-3: アイディア膨らまし
 
-1. `prompts/step2_idea_invention.md` を開く
-2. プロンプトをコピー（`@ideation/step1_persona.md` を含む）
-3. Amazon Q Developer (`q chat`) に貼り付け
-4. 出力結果を確認し、必要に応じて追加質問
-5. **結果を `ideation/step2_ideas.md` に保存**
-
-#### レビューフェーズ（3分）
+1. **Step1: 顧客理解** - ペルソナ作成、行動分析、課題特定
+2. **Step2: アイディア発明** - 参考事例収集、アイディア発明
+3. **Step3: ビジネス化** - PR/FAQ作成（必須）
 
-6. `ideation/step2_ideas.md` を開いて内容を確認
-7. 以下を自分で考えて修正：
-   - 参考事例は本当に参考になるか？
-   - 3つのアイディアは課題を解決できているか？
-   - 最有望案の選択理由は納得できるか？
-8. 必要に応じてファイルを直接編集
-
-**期待されるアウトプット:**
-- 参考事例5つ
-- 発明したアイディア3つ
-- 選択した最有望案1つ
-
-**参考リンク:**
-- [AWS生成AI事例集](https://aws.amazon.com/jp/local/genai-4-jp/)
+### Step 4: モック作成
 
-### Step3: ビジネス化（10分）🤖
+- Streamlit または FastAPI でモック作成
+- Strands Agentsで生成AI処理を実装
+- チェックリストで検証
 
-**目的**: 選択したアイディアをビジネスとして成立させるための分析を行う
+### Step 6-8: プレゼン・提出・発表
 
-#### 生成フェーズ（7分）
-
-1. `prompts/step3_business_model.md` を開く
-2. プロンプトをコピー（`@ideation/step2_ideas.md` を含む）
-3. Amazon Q Developer (`q chat`) に貼り付け
-4. 出力結果を確認し、必要に応じて追加質問
-5. **結果を `ideation/step3_prfaq.md` に保存（重要！）**
-
-#### レビューフェーズ（3分）
-
-6. `ideation/step3_prfaq.md` を開いて内容を確認
-7. 以下を自分で考えて修正：
-   - サービス名は魅力的か？
-   - 解決する課題は明確か？
-   - 体験手順はシンプルか？
-   - 独自の強みは明確か？
-8. 必要に応じてファイルを直接編集
+- **Step6**: プレゼン資料を自動生成（5分）
+- **Step7**: 提出フォーム記入
+- **Step8**: 発表・チームビルディング
 
-**期待されるアウトプット:**
-- ビジネスモデルキャンバス（オプション）
-- 簡易PR/FAQ（必須）
+## ⚠️ 重要: 作業ディレクトリ
 
-**重要:**
-- ビジネスモデルキャンバスはオプション（時間がない場合はスキップ）
-- **PR/FAQは必須**（モック作成の元になります）
-
-## ⚠️ 重要: 作業ディレクトリの確認
+Amazon Q Developerは作業ディレクトリを基準に動作します。
 
-Amazon Q Developer は**作業ディレクトリ**を基準に動作します。
-必ず作業前に現在のディレクトリを確認してください。
+- **Step1-3（アイディア膨らまし）**: `ai-hackathon-2025-ideathon/`
+- **Step4（モック作成）**: `ai-hackathon-2025-ideathon/your_work/`
 
-### 作業ディレクトリの確認方法
+詳細は **[WORKSHOP.md](./WORKSHOP.md)** の「作業ディレクトリについて」セクションを参照してください。
 
-**CLI:**
-```bash
-pwd  # 現在のディレクトリを表示
-```
+## 💡 重要なポイント
 
-**VSCode:**
-- ウィンドウのタイトルバーでフォルダ名を確認
-- 左下のステータスバーでフォルダ名を確認
-
-### Step1-3（アイディア膨らまし）
+- **VSCode拡張機能を使う** - 初心者に推奨（CLI版はオプション）
+- **「ポン出し」レベルでOK** - 完璧を求めない
+- **PR/FAQは必須** - モック作成の元になる
+- **時間配分を守る** - タイムテーブルに沿って進める
+- **AIと壁打ち** - 遠慮なく質問・追加依頼する
 
-**CLI:**
-```bash
-cd ai-hackathon-2025-ideathon/
-pwd  # 確認: .../ai-hackathon-2025-ideathon
-q chat
-```
-
-**VSCode:**
-- File > Open Folder → `ai-hackathon-2025-ideathon/` を選択
-- Amazon Q チャットを起動
+## ⚠️ トラブルシューティング
 
-### Step4（モック作成）
+問題が発生した場合は **[WORKSHOP.md](./WORKSHOP.md)** の「トラブルシューティング」セクションを参照してください。
 
-**CLI:**
-```bash
-cd your_work/
-pwd  # 確認: .../ai-hackathon-2025-ideathon/your_work
-q chat
-```
-
-**VSCode:**
-- File > Open Folder → `your_work/` を選択
-- Amazon Q チャットを起動
-
-### フェーズ間の移動
-
-**モック作成後にアイディアを再膨らませたい場合:**
-
-**CLI:**
-```bash
-# モック作成中
-cd your_work/
-q chat
-# Ctrl+D で終了
-
-# アイディア膨らましに戻る
-cd ..
-pwd  # 確認: .../ai-hackathon-2025-ideathon
-q chat
-```
-
-**VSCode:**
-- 2つのVSCodeウィンドウを開いておく（推奨）
-  - ウィンドウ1: `ai-hackathon-2025-ideathon/`
-  - ウィンドウ2: `your_work/`
-- Alt+Tab（Windows/Linux）または Cmd+Tab（Mac）でウィンドウ切り替え
-
-**⚠️ 間違ったディレクトリで起動すると、意図しないエージェントが起動します！**
-
-### モック作成（25分）🤖
-
-**目的**: PR/FAQからStrands Agentsを活用した動くモックを作成する
-
-1. `your_work` ディレクトリにいることを確認
-```bash
-cd your_work/
-pwd  # 確認: .../ai-hackathon-2025-ideathon/your_work
-```
-
-2. Amazon Q Developerを起動
-```bash
-q chat
-```
-
-3. 「モックを作成したい」と入力
-
-4. 技術スタックを選択（Streamlit+Strands Agents または FastAPI+HTML+Strands Agents）
-
-5. 自動的に `mock/` ディレクトリにアプリが生成されます
-
-6. `.env`ファイルをコピー
-```bash
-cp .env mock/.env
-```
-
-7. 仮想環境を作成して起動
-```bash
-cd mock/
-uv venv --python 3.11
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-uv pip install -r requirements.txt
-
-# Streamlitの場合
-streamlit run app.py
-
-# FastAPIの場合
-python app.py
-```
-
-8. ブラウザで開く
-- Streamlit: http://localhost:8501
-- FastAPI: http://localhost:8000
-
-**期待されるアウトプット:**
-- ランディングページ
-- Strands Agentsを活用した生成AI処理
-- 動作するアプリケーション（モックレベル）
-- ローカルURL
-
-### 提出（5分）📝
-
-1. 提出フォームに以下を記入
-   - アイディア名
-   - PR/FAQ
-   - モックのURL
-   - 工夫した点
-
-### 共有・チームビルディング（20分）🎉
-
-1. 発表者選定（各自1分）
-2. 発表
-3. 興味のあるアイディアにリアクション
-4. Slackでマッチング
-
-## 💡 Tips
-
-### プロンプトの使い方
-- プロンプトはテンプレートです。自分の状況に合わせて編集してください
-- Amazon Q Developerとの対話は壁打ちです。遠慮なく質問してください
-- 出力結果が気に入らなければ、「もっと具体的に」「別の案を」と追加質問
-
-### 時間配分
-- Step1-3で各10分を目安に
-- 時間がなければビジネスモデルキャンバスはスキップ
-- PR/FAQは必ず作成（モック作成に必要）
-
-### モック作成
-- 「ポン出し」レベルでOK
-- 完璧を目指さない
-- デザインよりも機能の体験を優先
-
-### トラブルシューティング
-
-#### Amazon Q Developer CLIが起動しない
-```bash
-# インストール確認
-q --version
-
-# 再インストール
-npm install -g @aws/amazon-q-developer-cli
-```
-
-#### モック作成が失敗する
-- `ideation/step3_prfaq.md` が保存されているか確認
-- PR/FAQの内容が具体的か確認
-- エラーメッセージをAmazon Q Developerに貼り付けて相談
-
-#### AWSデプロイが失敗する
-- AWS CLIの設定を確認
-```bash
-aws sts get-caller-identity
-```
+または運営・チューターに質問してください。
 
 ## 📚 参考資料
 
+- **[WORKSHOP.md](./WORKSHOP.md)** - 詳細手順書（タイムテーブル含む）
 - [Amazon Q Developer ドキュメント](https://docs.aws.amazon.com/amazonq/)
 - [AWS生成AI事例集](https://aws.amazon.com/jp/local/genai-4-jp/)
+- [Streamlit公式ドキュメント](https://docs.streamlit.io/)
 
-## 🙏 Acknowledgments
+---
 
-このワークショップは [AWS ML Enablement Workshop](https://github.com/aws-samples/aws-ml-enablement-workshop) を参考にしています。
+**👉 まずは [WORKSHOP.md](./WORKSHOP.md) を開いて始めましょう！**

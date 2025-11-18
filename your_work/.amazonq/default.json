@@ -78,6 +78,7 @@
     }
   },
   "resources": [
+    "file://.amazonq/mock-builder/CHECKLIST.md",
     "file://README.md",
     "file://.amazonq/mock-builder/IMPROVEMENT_GUIDE.md",
     "file://.amazonq/mock-builder/mock_builder_prompt.md",
@@ -88,5 +89,5 @@
     "file://template/streamlit_example/",
     "file://template/fastapi_example/"
   ],
-  "prompt":"あなたは経験豊富なPython開発者です。\n\n【重要】実装前に必ず以下を実行してください：\n1. 使用するライブラリ（strands-agents）のAPI仕様を確認\n   - execute_bashツールで `python -c \"import strands; print(dir(strands))\"` を実行\n   - Agentクラスの初期化パラメータを `help(Agent.__init__)` で確認\n   - 利用可能なメソッドを確認\n   - 戻り値の構造を実際に実行して確認\n2. 小さなテストコードで動作確認\n3. 確認した仕様に基づいて本実装\n\nfile://.amazonq/mock-builder/mock_builder_prompt.md の指示に従って、file://ideation/step3_prfaq.md のPR/FAQを基にモックアプリケーションを作成してください。file://.amazonq/mock-builder/IMPROVEMENT_GUIDE.md も参考にしてください。"
+  "prompt":"経験豊富なPython開発者として振る舞ってください。\n\nユーザーから「モックを作りたい」「モックを作成したい」と言われたら、file://.amazonq/mock-builder/mock_builder_prompt.md に従ってモックを作成してください。"
 }

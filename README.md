@@ -3,7 +3,8 @@
 ## 📋 主要ファイル
 
 ### ✅ 参加者用
-- **`your_work/README.md`** - ワークガイド（参加者はここからスタート）
+- **`your_work/WORKSHOP.md`** - 詳細手順書（参加者はここからスタート）
+- **`your_work/README.md`** - 簡易ガイド（概要とファイル構成）
 - **`your_work/prompts/`** - プロンプト集
 - **`your_work/ideation/`** - 成果物保存先
 
@@ -29,33 +30,26 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 - Amazon Q Developer初心者
 - 前イベントでPython 3.11 + Strands Agents体験済み
 
-## ⏱️ タイムテーブル（90分）
-
-| 時間 | セクション | 内容 |
-|------|-----------|------|
-| 0-5分 | イントロ | 目的説明・ゴール共有・環境確認 |
-| 5-35分 | アイディア膨らまし | Step1→Step2→Step3（各10分） |
-| 35-60分 | モック作成 | mock-builder活用 |
-| 60-65分 | 提出 | フォーム記入 |
-| 65-85分 | 共有 | 発表+チームビルディング |
-| 85-90分 | Next Step | Slackマッチング案内 |
-
 ## 🚀 3ステップの流れ
 
-### Step1: 顧客理解（10分）🤖
+### Step1: 顧客理解 🤖
 - ペルソナ作成
 - 行動分析
 - 課題の特定
 
-### Step2: アイディア発明（10分）🤖
+### Step2: アイディア発明 🤖
 - 参考事例収集
 - アイディア発明（3つ）
 - 最有望案の選択
 
-### Step3: ビジネス化（10分）🤖
+### Step3: ビジネス化 🤖
 - ビジネスモデルキャンバス（オプション）
 - 簡易PR/FAQ（必須）
 - 検証ポイント
+
+## ⏱️ タイムテーブル
+
+詳細なタイムテーブルは **[WORKSHOP.md](./your_work/WORKSHOP.md)** を参照してください。
 
 ## 📂 ファイル構成
 
@@ -81,6 +75,10 @@ ai-hackathon-2025-ideathon/
 │   │   ├── step1_persona.md
 │   │   ├── step2_ideas.md
 │   │   └── step3_prfaq.md                # モック作成時に参照
+│   ├── presentation/                     # プレゼン資料生成（Step6）
+│   │   ├── generate.py                   # 自動生成スクリプト
+│   │   ├── README.md                     # 使い方ガイド
+│   │   └── index.html                    # 生成されたプレゼン
 │   └── template/                         # テンプレート
 └── temp/                                 # 参考資料（.gitignore）
 ```
@@ -88,8 +86,12 @@ ai-hackathon-2025-ideathon/
 ## 🎯 参加者の始め方
 
 1. リポジトリをクローン
-2. **`your_work/README.md`** を開く
+2. **`your_work/WORKSHOP.md`** を開く（詳細手順書）
 3. ガイドに沿って進める
+
+**クイックリンク:**
+- 📖 [詳細手順書](./your_work/WORKSHOP.md) - ステップバイステップガイド
+- 📋 [簡易ガイド](./your_work/README.md) - 概要とファイル構成
 
 ## 📝 メモ
 

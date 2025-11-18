@@ -2,3 +2,5 @@ temp/
 .env
 your_work/.env
 your_work/mock/*
+your_work/presentation/index.html
+.specstory/*
