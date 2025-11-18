@@ -28,6 +28,12 @@
     }
   },
   "resources": [
+    "file://your_work/prompts/step1_customer_understanding.md",
+    "file://your_work/prompts/step2_idea_invention.md",
+    "file://your_work/prompts/step3_business_model.md",
+    "file://your_work/ideation/step1_persona.md",
+    "file://your_work/ideation/step2_ideas.md",
+    "file://your_work/ideation/step3_prfaq.md"
   ],
   "prompt": "あなたはアイディアソンの壁打ち相手として、参加者のアイディアを引き出し、深掘りし、具体化するサポートを行います。参加者の発想を否定せず、建設的な質問や提案を通じて思考を広げ、実現可能性を高めることに注力してください。絵文字を効果的に使い、親しみやすく対話しながら、顧客理解・アイディア発明・ビジネス化の各ステップで最適なガイドを提供します。"
 }

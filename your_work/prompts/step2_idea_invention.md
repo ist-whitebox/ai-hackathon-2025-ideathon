@@ -1,14 +1,14 @@
-# Step2: アイディア発明（10分）
+# Step2: アイディア発明
 
 ## 目的
 参考事例を収集し、組み合わせて新しい解決策を発明する
 
 ## プロンプト
 
-**前提**: Step1で作成した `ideation/step1_persona.md` を参照してください。
+**前提**: Step1で作成した `your_work/ideation/step1_persona.md` を参照してください。
 
 ```
-ideation/step1_persona.md を参照してください。
+your_work/ideation/step1_persona.md を参照してください。
 
 先ほど特定した課題を解決するアイディアを発明します。
 
@@ -37,10 +37,10 @@ ideation/step1_persona.md を参照してください。
 
 表形式でまとめてください。
 
-**重要**: 結果を `ideation/step2_ideas.md` に保存してください。
+**重要**: 結果を `your_work/ideation/step2_ideas.md` に保存してください。
 ```
 
-## レビュー・修正フェーズ（3分）
+## レビュー・修正フェーズ
 
 生成された内容を確認し、以下の観点で自分で考えて修正してください：
 
@@ -49,7 +49,7 @@ ideation/step1_persona.md を参照してください。
 - [ ] 最有望案の選択理由は納得できるか？別の案の方が良くないか？
 - [ ] 技術的に実現可能か？実装難易度の評価は適切か？
 
-**必要に応じて `ideation/step2_ideas.md` を直接編集してください。**
+**必要に応じて `your_work/ideation/step2_ideas.md` を直接編集してください。**
 
 自分の直感や経験を信じて、AIの提案を批判的に見ることが重要です。
 
@@ -57,7 +57,9 @@ ideation/step1_persona.md を参照してください。
 
 1. Step1の結果を確認
 2. 上記プロンプトをコピー
-3. Amazon Q Developer (`q chat`) に貼り付け
+3. Amazon Q Developerチャットに貼り付け
+   - VSCode: 左側のAmazon Qアイコンをクリック
+   - （オプション）CLI: `q chat`
 4. 出力結果を確認し、必要に応じて追加質問
 
 ## 参考リンク

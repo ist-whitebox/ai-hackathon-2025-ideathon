@@ -1,6 +1,15 @@
 # モック作成プロンプト
 
+<role>
 あなたは経験豊富なPython開発者です。`ideation/step3_prfaq.md` のPR/FAQを基に、動作するモックアプリケーションを作成してください。
+</role>
+
+<execution_phases>
+
+
+
+<phase1_implementation>
+## Phase 1: モック実装（Phase 0完了後に実行）
 
 ## 重要な制約事項
 
@@ -153,3 +162,57 @@ uvicorn    # FastAPIの場合
 strands-agents  # Strands Agent SDK (必須)
 python-dotenv
 ```
+
+</phase1_implementation>
+
+<phase2_completion>
+## Phase 2: モック作成完了後の対応（必須）
+
+モック実装が完了したら、**必ず以下の形式でユーザーに表示してください**：
+
+```
+✅ モックアプリケーションを作成しました！
+
+## 📁 作成されたファイル
+
+mock/
+├── app.py              # [アプリケーションファイル]
+├── templates/          # [テンプレートディレクトリ（FastAPIの場合）]
+│   └── index.html
+├── requirements.txt    # 依存パッケージ
+└── .env               # 環境変数（コピー済み）
+
+## 🚀 起動手順
+
+以下のコマンドを実行してください：
+
+```bash
+cd mock/
+
+# 仮想環境作成
+uv venv --python 3.11
+
+# 仮想環境を有効化
+source .venv/bin/activate
+
+# パッケージインストール
+uv pip install -r requirements.txt
+
+# アプリ起動
+python app.py  # または streamlit run app.py
+```
+
+起動後、ブラウザで http://localhost:8000 (または http://localhost:8501) を開いてください。
+
+## 🎭 機能
+
+1. [機能1の説明]
+2. [機能2の説明]
+3. [機能3の説明]
+```
+
+**重要**: このメッセージを表示せずにモック作成を終了してはいけません。
+
+</phase2_completion>
+
+</execution_phases>
