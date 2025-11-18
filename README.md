@@ -44,8 +44,24 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 
 ### Step3: ビジネス化 🤖
 - ビジネスモデルキャンバス（オプション）
-- 簡易PR/FAQ（必須）
+- PR/FAQ（必須）
 - 検証ポイント
+
+## 🤖 Amazon Q設定の工夫
+
+このワークショップでは、**2つの異なるAmazon Q設定**を使い分けることで、最適なAIサポートを実現しています：
+
+### ルートディレクトリ (`.amazonq/default.json`)
+- **用途**: Step1-3（アイディア膨らまし）
+- **振る舞い**: 壁打ち相手として、顧客理解・アイディア発明・ビジネス化をサポート
+- **VSCodeで開くフォルダ**: `ai-hackathon-2025-ideathon/`
+
+### your_workディレクトリ (`your_work/.amazonq/`)
+- **用途**: Step4（モック作成）
+- **振る舞い**: mock-builderとして、PR/FAQからモックを自動生成
+- **VSCodeで開くフォルダ**: `ai-hackathon-2025-ideathon/your_work/`
+
+💡 **ポイント**: 作業内容に応じてVSCodeで開くフォルダを変えることで、最適なAIサポートが得られます
 
 ## ⏱️ タイムテーブル
 
@@ -96,7 +112,7 @@ ai-hackathon-2025-ideathon/
 ## 📝 メモ
 
 - ビジネスモデルキャンバスはオプション（時間がある人だけ）
-- モックは「ポン出し」レベルでOK
+- モックはシンプルでOK
 - PR/FAQは必須
 - チームビルディングが本番
 
