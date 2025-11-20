@@ -39,7 +39,7 @@ def select_design_theme() -> dict:
     print("=" * 60 + "\n")
     
     # 質問1: カラーテーマ
-    print("[1/4] カラーテーマを選んでください:")
+    print("[1/6] カラーテーマを選んでください:")
     print("  1. パープル・グラデーション (知的・落ち着き) [デフォルト]")
     print("  2. ブルー・グリーン (爽やか・テック系)")
     print("  3. オレンジ・ピンク (温かみ・消費者向け)")
@@ -47,24 +47,70 @@ def select_design_theme() -> dict:
     color_theme = input("選択 (1-4, Enter=1): ").strip() or "1"
     
     # 質問2: 雰囲気
-    print("\n[2/4] 雰囲気を選んでください:")
+    print("\n[2/6] 雰囲気を選んでください:")
     print("  1. ビジネス・フォーマル [デフォルト]")
     print("  2. フレンドリー・カジュアル")
     print("  3. テック・イノベーション")
     tone = input("選択 (1-3, Enter=1): ").strip() or "1"
     
     # 質問3: アニメーション
-    print("\n[3/4] アニメーションを選んでください:")
+    print("\n[3/6] アニメーションを選んでください:")
     print("  1. 控えめ")
     print("  2. 標準 [デフォルト]")
     print("  3. ダイナミック")
     animation = input("選択 (1-3, Enter=2): ").strip() or "2"
     
     # 質問4: 自由記述
-    print("\n[4/4] その他、こだわりたいポイントがあれば教えてください:")
+    print("\n[4/6] その他、こだわりたいポイントがあれば教えてください:")
     print("  例: 「ポップな印象にしたい」「文字を大きめに」「シンプルに」")
     print("  ※ 改行なしで1行で入力してください。なければEnterでスキップ")
     custom_request = input("要望: ").strip()
+    
+    # 質問5: チームメンバー募集（ポジション・スキル）
+    print("\n[5/6] 募集したいポジション・スキルを選んでください（複数選択可、カンマ区切り）:")
+    print("  1. フロントエンドエンジニア")
+    print("  2. バックエンドエンジニア")
+    print("  3. インフラ・DevOpsエンジニア")
+    print("  4. UI/UXデザイナー")
+    print("  5. ビジネス・マーケティング")
+    print("  6. データサイエンティスト")
+    print("  7. その他")
+    print("  例: 1,3,5 または Enter でスキップ")
+    positions_input = input("選択: ").strip()
+    
+    # ポジション選択を処理
+    position_map = {
+        "1": "フロントエンドエンジニア",
+        "2": "バックエンドエンジニア",
+        "3": "インフラ・DevOpsエンジニア",
+        "4": "UI/UXデザイナー",
+        "5": "ビジネス・マーケティング",
+        "6": "データサイエンティスト",
+        "7": "その他"
+    }
+    
+    selected_positions = []
+    if positions_input:
+        for num in positions_input.split(","):
+            num = num.strip()
+            if num in position_map:
+                selected_positions.append(position_map[num])
+    
+    # "その他"が選ばれた場合は追加入力
+    if "その他" in selected_positions:
+        print("\n  「その他」の具体的なポジション・スキルを入力してください:")
+        other_position = input("  ポジション: ").strip()
+        if other_position:
+            selected_positions.remove("その他")
+            selected_positions.append(other_position)
+        else:
+            selected_positions.remove("その他")
+    
+    # 質問6: 価値観・考え方
+    print("\n[6/6] どんな考え方・価値観を持った人と組みたいですか？")
+    print("  例: 「ユーザー視点を大切にする人」「失敗を恐れずチャレンジする人」")
+    print("  ※ 1行で入力、なければEnterでスキップ")
+    values = input("価値観: ").strip()
     
     print("\n✅ 設定完了！プレゼンを生成中...\n")
     
@@ -72,7 +118,9 @@ def select_design_theme() -> dict:
         "color_theme": color_theme,
         "tone": tone,
         "animation": animation,
-        "custom_request": custom_request
+        "custom_request": custom_request,
+        "team_positions": selected_positions,
+        "team_values": values
     }
 
 
@@ -153,7 +201,9 @@ def get_theme_config(design_settings: dict) -> dict:
         "color_config": color_themes.get(design_settings["color_theme"], color_themes["1"]),
         "tone_description": tone_descriptions.get(design_settings["tone"], tone_descriptions["1"]),
         "animation_level": animation_levels.get(design_settings["animation"], animation_levels["2"]),
-        "custom_request": design_settings["custom_request"]
+        "custom_request": design_settings["custom_request"],
+        "team_positions": design_settings.get("team_positions", []),
+        "team_values": design_settings.get("team_values", "")
     }
 
 
@@ -176,6 +226,8 @@ def extract_content_with_ai(persona: str, ideas: str, prfaq: str, theme_config: 
     # カスタム要望のサニタイズ
     # ユーザー入力をそのまま使うのではなく、文字列連結で安全に処理
     custom_request_safe = theme_config["custom_request"]
+    team_positions = theme_config.get("team_positions", [])
+    team_values = theme_config.get("team_values", "")
     
     # システムプロンプトを文字列連結で構築（f-stringの入れ子を避ける）
     design_info = f"""【デザイン設定】
@@ -187,11 +239,18 @@ def extract_content_with_ai(persona: str, ideas: str, prfaq: str, theme_config: 
     if custom_request_safe:
         design_info += "\n- カスタム要望: " + custom_request_safe
     
+    # チームメンバー募集情報を追加
+    team_info = "\n\n【チームメンバー募集情報】"
+    if team_positions:
+        team_info += "\n- 募集ポジション: " + "、".join(team_positions)
+    if team_values:
+        team_info += "\n- 求める価値観: " + team_values
+    
     agent = Agent(
         model=BEDROCK_MODEL,
         system_prompt=f"""あなたはプレゼンテーション資料作成の専門家です。
         
-{design_info}
+{design_info}{team_info}
 
 与えられたアイディアソンの成果物から、上記のデザイン設定に合った観衆の目を引く魅力的なプレゼン資料の内容を抽出してください。
 
@@ -221,7 +280,7 @@ def extract_content_with_ai(persona: str, ideas: str, prfaq: str, theme_config: 
     {{"title": "強み3", "description": "説明（50文字以内）"}}
   ],
   "team_message": "チームメンバー募集のメッセージ（100文字以内、熱意が伝わる文章）",
-  "vision": "実現したい世界（80文字以内、抽象的でもOK）"
+  "vision": "実現したい世界（80文字以内、このサービスが目指す未来）"
 }}
 
 重要：
@@ -229,6 +288,7 @@ def extract_content_with_ai(persona: str, ideas: str, prfaq: str, theme_config: 
 - 簡潔で分かりやすく
 - 数字や具体例を入れる
 - 熱量が伝わる表現にする
+- team_messageとvisionは、このプロダクト固有の内容にすること（一般的な表現は避ける）
 """
     )
     
@@ -316,6 +376,40 @@ def generate_html(content: dict, theme_config: dict) -> str:
           <p>{strength['description']}</p>
         </div>
 """
+    
+    # チームメンバー募集セクションのHTML生成
+    team_positions = theme_config.get("team_positions", [])
+    team_values = theme_config.get("team_values", "")
+    
+    # ポジション別のアイコンマッピング
+    position_icons = {
+        "フロントエンドエンジニア": "👨‍💻",
+        "バックエンドエンジニア": "⚙️",
+        "インフラ・DevOpsエンジニア": "🛠️",
+        "UI/UXデザイナー": "🎨",
+        "ビジネス・マーケティング": "📊",
+        "データサイエンティスト": "📈"
+    }
+    
+    # 募集ポジションのHTML
+    positions_html = ""
+    if team_positions:
+        positions_html = '<div class="team-positions">'
+        for position in team_positions:
+            icon = position_icons.get(position, "✨")
+            positions_html += f'<div class="position-tag">{icon} {position}</div>\n'
+        positions_html += '</div>'
+    
+    # 求める価値観のHTML
+    values_html = ""
+    if team_values:
+        # カンマまたは「、」で分割
+        values_list = [v.strip() for v in team_values.replace("、", ",").split(",") if v.strip()]
+        if values_list:
+            values_html = '<div class="team-values">'
+            for value in values_list:
+                values_html += f'<div class="value-item">✨ {value}</div>\n'
+            values_html += '</div>'
     
     html = f"""<!DOCTYPE html>
 <html lang="ja">
@@ -551,10 +645,63 @@ def generate_html(content: dict, theme_config: dict) -> str:
       color: white;
     }}
     
+    .team-section-title {{
+      font-size: 2rem;
+      margin-top: 40px;
+      margin-bottom: 25px;
+      color: white;
+      font-weight: 600;
+    }}
+    
+    .team-positions {{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }}
+    
+    .position-tag {{
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      animation: fadeInUp {animation_speed} ease-out both;
+    }}
+    
+    .position-tag:hover {{
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }}
+    
+    .team-values {{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin: 30px 0;
+    }}
+    
+    .value-item {{
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 12px 35px;
+      border-radius: 15px;
+      font-size: 1.3rem;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      max-width: 600px;
+      animation: fadeInLeft {animation_speed} ease-out both;
+    }}
+    
     .team-message {{
       font-size: 1.8rem;
       line-height: 2;
-      margin-bottom: 40px;
+      margin: 40px 0;
       opacity: 0.95;
     }}
     
@@ -615,6 +762,25 @@ def generate_html(content: dict, theme_config: dict) -> str:
       }}
       
       .feature-card, .strength-card {{
+        padding: 30px 20px;
+      }}
+      
+      .position-tag {{
+        font-size: 1.1rem;
+        padding: 12px 20px;
+      }}
+      
+      .value-item {{
+        font-size: 1.1rem;
+        padding: 10px 25px;
+      }}
+      
+      .team-message {{
+        font-size: 1.4rem;
+      }}
+      
+      .vision {{
+        font-size: 1.6rem;
         padding: 30px 20px;
       }}
     }}
@@ -696,6 +862,8 @@ def generate_html(content: dict, theme_config: dict) -> str:
   <section id="team" class="section">
     <div class="container">
       <h2>🎉 一緒にやりませんか？</h2>
+      {f'<h3 class="team-section-title">募集しているメンバー</h3>{positions_html}' if positions_html else ''}
+      {f'<h3 class="team-section-title">こんな人と組みたい</h3>{values_html}' if values_html else ''}
       <p class="team-message">{content.get('team_message', 'チームメンバーを募集しています！')}</p>
       <div class="vision">
         {content.get('vision', '実現したい世界')}
