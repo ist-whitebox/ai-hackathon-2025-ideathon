@@ -54,14 +54,14 @@ AWS ML Enablement Workshopの良いところを参照しつつ、Amazon Q Develo
 ### ルートディレクトリ (`.amazonq/default.json`)
 - **用途**: Step1-3（アイディア膨らまし）
 - **振る舞い**: 壁打ち相手として、顧客理解・アイディア発明・ビジネス化をサポート
-- **VSCodeで開くフォルダ**: `ai-hackathon-2025-ideathon/`
+- **自動適用**: VSCodeで`ai-hackathon-2025-ideathon/`を開いている場合
 
-### your_workディレクトリ (`your_work/.amazonq/`)
+### your_workディレクトリ (`your_work/.amazonq/default.json`)
 - **用途**: Step4（モック作成）
 - **振る舞い**: mock-builderとして、PR/FAQからモックを自動生成
-- **VSCodeで開くフォルダ**: `ai-hackathon-2025-ideathon/your_work/`
+- **明示的参照**: プロンプトで`your_work/.amazonq/default.json`を指定して使用
 
-💡 **ポイント**: 作業内容に応じてVSCodeで開くフォルダを変えることで、最適なAIサポートが得られます
+💡 **ポイント**: Step4では、プロンプトで設定ファイルを明示的に参照することで、モック作成専用のAIサポートが得られます
 
 ## ⏱️ タイムテーブル
 
